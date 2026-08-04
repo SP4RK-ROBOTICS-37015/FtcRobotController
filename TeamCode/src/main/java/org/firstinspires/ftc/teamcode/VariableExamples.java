@@ -17,9 +17,10 @@ public class VariableExamples extends OpMode {
         int motorAngle = 90;
 
         telemetry.addData("Team Number", teamNumber);
-        telemetry.addData("Motor Speed", teamNumber);
-        telemetry.addData("clawClosed", teamNumber);
-        telemetry.addData("Team Name", teamNumber);
+        telemetry.addData("Motor Speed", motorSpeed);
+        telemetry.addData("clawClosed", clawClosed);
+        telemetry.addData("Team Name", teamName);
+        telemetry.addData("Motor Angle", motorAngle);
 
     }
 
