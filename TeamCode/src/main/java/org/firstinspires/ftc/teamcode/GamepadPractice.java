@@ -23,7 +23,7 @@ public class GamepadPractice extends OpMode {
         telemetry.addData("right y", gamepad1.right_stick_y);
 
         telemetry.addData("a button", gamepad1.a);
-        telemetry.addData("b button", gamepad1.b;
+        telemetry.addData("b button", gamepad1.b);
 
         telemetry.addData("difference x", diffXJoysticks);
         telemetry.addData("sum triggers", sumTriggers);
