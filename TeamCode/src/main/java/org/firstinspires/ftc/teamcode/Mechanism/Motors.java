@@ -18,7 +18,7 @@ public class Motors {
 
     }
 
-    /* Creazione dei metodi per i movimenti dei motori*/
+    /* Creazione dei metodi per i movimenti dei motori */
 
     public void moveForward(double speed) {
 
