@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.opmode.autonomus;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous; //importa i comandi necessari per creare la parte autonoma.
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode; //imorta la struttura che permette al codice di essere eseguito riga per riga.
 import com.qualcomm.robotcore.hardware.DcMotor;//Importa le istruzioni per poter controllare i motori.

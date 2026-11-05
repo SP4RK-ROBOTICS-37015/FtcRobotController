@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.opmode.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Mechanism.Motors;
+import org.firstinspires.ftc.teamcode.hardware.Motors;
 
-@TeleOp(name = "Robot", group = "TeleOp")
+@TeleOp(name = "Test", group = "TeleOp")
 
 public class Robot extends OpMode {
 
