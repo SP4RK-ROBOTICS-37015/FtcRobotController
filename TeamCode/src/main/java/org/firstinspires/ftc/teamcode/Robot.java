@@ -62,7 +62,7 @@ public class Robot extends OpMode {
 
         // Prova dell'uso dei joysticks al posto delle freccette per controllare i movimenti del robot
 
-        /* if(gamepad1.left_stick_y < 0) {
+        if(gamepad1.left_stick_y < 0) {
             motors.moveForward(speed);
         }
         else if(gamepad1.left_stick_y > 0) {
@@ -82,8 +82,6 @@ public class Robot extends OpMode {
         }
         else {
             motors.stopMotors();
-        } */
-
+        }
     }
-
 }
