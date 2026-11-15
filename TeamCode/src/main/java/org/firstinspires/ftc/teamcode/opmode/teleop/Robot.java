@@ -43,7 +43,7 @@ public class Robot extends OpMode {
         telemetry.addData("TurnRight", gamepad1.right_bumper);
 
         // Controllo del movimento attraverso le freccette ed i bumper.
-
+/*
         if (gamepad1.dpad_up) {
             motors.moveForward(speed);
         } else if (gamepad1.dpad_down) {
@@ -59,7 +59,7 @@ public class Robot extends OpMode {
         } else {
             motors.stopMotors();
         }
-
+*/
         // Prova dell'uso dei joysticks al posto delle freccette per controllare i movimenti del robot
 
         if(gamepad1.left_stick_y < -0.1) {
