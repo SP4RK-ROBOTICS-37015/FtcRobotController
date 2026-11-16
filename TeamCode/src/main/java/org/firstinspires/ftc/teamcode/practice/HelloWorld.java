@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.practice;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
@@ -10,7 +10,9 @@ public class HelloWorld extends OpMode {
 
     @Override
     public void init() {
-         telemetry.addData("Hello", "world");
+
+        telemetry.addData("Hello", "World");
+        
     }
 
     @Override
