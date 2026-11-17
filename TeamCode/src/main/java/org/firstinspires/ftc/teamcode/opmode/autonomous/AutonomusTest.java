@@ -1,7 +1,9 @@
-package org.firstinspires.ftc.teamcode.opmode.autonomus;
+package org.firstinspires.ftc.teamcode.opmode.autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous; // Importa i comandi necessari per creare la parte autonoma.
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode; // Importa la struttura che permette al codice di essere eseguito riga per riga.
 import com.qualcomm.robotcore.hardware.DcMotor;// Importa le istruzioni per poter controllare i motori.
+@Disabled
 @Autonomous(name = "Autonomus Test" , group = "Robot") // Dice che questo è un programma automomo e imposta il nome sul display.
 
 public class AutonomusTest extends LinearOpMode { // Definizione del programma che segue una logica.

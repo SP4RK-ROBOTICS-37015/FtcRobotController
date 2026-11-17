@@ -6,16 +6,17 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Pose2D;
 
+
 public class Imu {
     public GoBildaPinpointDriver pinpoint; //Dichiarazione di un nuovo oggetto. Nome dell'oggetto: pinpoint
 
     //Dichiarazione variabili
     public double posX;
     public double posY;
-    public double Ang_Gradi;
+    public double angGradi;
 
     //costrutore: "dettagli" dell'oggetto pinpoint
-    public Imu(HardwareMap hardwareMap ){
+    public Imu(HardwareMap hardwareMap){
 
         pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "pinpoint");
         pinpoint.setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
@@ -33,7 +34,7 @@ public class Imu {
         {
             posX = posizione.getX(DistanceUnit.MM); //posizione sull'asse delle x in MM -> millimetri
             posY = posizione.getY(DistanceUnit.MM); //posizione sull'asse delle y in MM -> millimetri
-            Ang_Gradi = posizione.getHeading(AngleUnit.DEGREES); //angolo di rotazione in DEGREES -> gradi
+            angGradi = posizione.getHeading(AngleUnit.DEGREES); //angolo di rotazione in DEGREES -> gradi
         }
     }
 

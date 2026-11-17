@@ -3,16 +3,21 @@ package org.firstinspires.ftc.teamcode.opmode.teleop;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.hardware.Imu;
 import org.firstinspires.ftc.teamcode.hardware.Motors;
 
-@TeleOp(name = "Test", group = "TeleOp")
+@TeleOp(name = "Robot", group = "TeleOp")
 
 public class Robot extends OpMode {
 
-    Motors motors = new Motors();
+    private Motors motors;
+    private Imu robotImu;
 
     @Override
     public void init() {
+
+        motors = new Motors();
+        robotImu = new Imu(hardwareMap);
 
         motors.init(hardwareMap);
         telemetry.addData("INIT", "Pronto!");
@@ -25,15 +30,7 @@ public class Robot extends OpMode {
         // Si legge il valore di pressione del Trigger Destro (da 0.0 a 1.0) per la variabile speed (per regolare la velocità)
         double speed = gamepad1.right_trigger;
 
-        // double slowing = gamepad1.left_trigger;
-        // speed -= slowing; Prova dell'uso della frenata, gestita dal left trigger
-
-        /* if(speed < -1) {
-
-        speed = -1;
-
-        } Serve a normalizzare la velocità a -1 nel caso (frenata - accelerazione) < -1 */
-
+        //Telemetria
         telemetry.addData("Speed", speed);
         telemetry.addData("Up", gamepad1.dpad_up);
         telemetry.addData("Down", gamepad1.dpad_down);
@@ -41,10 +38,22 @@ public class Robot extends OpMode {
         telemetry.addData("Right", gamepad1.dpad_right);
         telemetry.addData("TurnLeft", gamepad1.left_bumper);
         telemetry.addData("TurnRight", gamepad1.right_bumper);
+        telemetry.addData("LeftStickX: ", gamepad1.left_stick_x);
+        telemetry.addData("LeftStickY: ", gamepad1.left_stick_y);
+        telemetry.addData("RightStickX: ", gamepad1.right_stick_x);
+        telemetry.addData("RightStickY: ", gamepad1.right_stick_y);
+
+        //Odometria
+        robotImu.update();
+
+        telemetry.addData("posizione X: ", robotImu.posX);
+        telemetry.addData("posizione Y: ", robotImu.posY);
+        telemetry.addData("angolo di rotazione: ", robotImu.angGradi);
+
 
         // Controllo del movimento attraverso le freccette ed i bumper.
 
-        if (gamepad1.dpad_up) {
+        /*if (gamepad1.dpad_up) {
             motors.moveForward(speed);
         } else if (gamepad1.dpad_down) {
             motors.moveBack(speed);
@@ -58,7 +67,7 @@ public class Robot extends OpMode {
             motors.turnRight(speed);
         } else {
             motors.stopMotors();
-        }
+        }*/
 
         // Prova dell'uso dei joysticks al posto delle freccette per controllare i movimenti del robot
 

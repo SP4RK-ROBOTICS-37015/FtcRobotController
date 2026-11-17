@@ -1,38 +1,39 @@
 package org.firstinspires.ftc.teamcode.localization;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode; // Importa la classe per creare un programma FTC sequenziale
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp; // Importa l'annotazione per registrare un TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor; // Importa la classe per controllare i motori
 
-public class Odometry {
-    @TeleOp(name = "Odometry Test") // Imposta il nome del programma che apparirà sul Driver Hub
-    public class OdometryTest extends LinearOpMode { // Crea la classe del programma e la collega a LinearOpMode
+@Disabled
+@TeleOp(name = "Odometry Test") // Imposta il nome del programma che apparirà sul Driver Hub
+public class OdometryTest extends LinearOpMode { // Crea la classe del programma e la collega a LinearOpMode
 
-        DcMotor leftMotor; // Dichiara il motore sinistro
-        DcMotor rightMotor; // Dichiara il motore destro
+    DcMotor leftMotor; // Dichiara il motore sinistro
+    DcMotor rightMotor; // Dichiara il motore destro
 
-        // PARAMETRI DEL ROBOT
+    // PARAMETRI DEL ROBOT
 
-        static final double TICKS_PER_REV = 537.7; // Numero di tick dell'encoder per un giro completo della ruota (valore da calibrare)
-        static final double WHEEL_DIAMETER = 9.6; // Diametro della ruota espresso in centimetri
-        static final double TRACK_WIDTH = 35.0; // Distanza tra il centro della ruota sinistra e quello della ruota destra, in cm
+    static final double TICKS_PER_REV = 537.7; // Numero di tick dell'encoder per un giro completo della ruota (valore da calibrare)
+    static final double WHEEL_DIAMETER = 9.6; // Diametro della ruota espresso in centimetri
+    static final double TRACK_WIDTH = 35.0; // Distanza tra il centro della ruota sinistra e quello della ruota destra, in cm
 
-        // POSIZIONE INIZIALE DEL ROBOT
+    // POSIZIONE INIZIALE DEL ROBOT
 
-        double x = 0; // Coordinata orizzontale iniziale del robot
-        double y = 0; // Coordinata verticale iniziale del robot
-        double heading = 0; // Angolo iniziale del robot espresso in radianti
+    double x = 0; // Coordinata orizzontale iniziale del robot
+    double y = 0; // Coordinata verticale iniziale del robot
+    double heading = 0; // Angolo iniziale del robot espresso in radianti
 
-        int oldLeftTicks = 0; // Memorizza il valore precedente dell'encoder sinistro
-        int oldRightTicks = 0; // Memorizza il valore precedente dell'encoder destro
+    int oldLeftTicks = 0; // Memorizza il valore precedente dell'encoder sinistro
+    int oldRightTicks = 0; // Memorizza il valore precedente dell'encoder destro
 
-        @Override // Indica che stiamo ridefinendo il metodo runOpMode della classe LinearOpMode
-        public void runOpMode() { // Metodo principale che contiene il programma FTC
+    @Override // Indica che stiamo ridefinendo il metodo runOpMode della classe LinearOpMode
+    public void runOpMode() { // Metodo principale che contiene il programma FTC
 
-            leftMotor = hardwareMap.get( // Recupera il motore sinistro dalla configurazione hardware
-                    DcMotor.class, "leftMotor"); // Cerca il motore chiamato leftMotor
+        leftMotor = hardwareMap.get( // Recupera il motore sinistro dalla configurazione hardware
+                DcMotor.class, "leftMotor"); // Cerca il motore chiamato leftMotor
 
             rightMotor = hardwareMap.get( // Recupera il motore destro dalla configurazione hardware
-                    DcMotor.class, "rightMotor"); // Cerca il motore chiamato rightMotor
+                    // DcMotor.class, "rightMotor"); // Cerca il motore chiamato rightMotor
 
             leftMotor.setMode( // Imposta la modalità di funzionamento del motore sinistro
                     DcMotor.RunMode.STOP_AND_RESET_ENCODER); // Ferma e azzera il contatore dell'encoder sinistro
@@ -107,4 +108,4 @@ public class Odometry {
     }
 
 
-}
+
