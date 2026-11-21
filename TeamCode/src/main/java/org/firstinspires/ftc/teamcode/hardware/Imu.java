@@ -18,6 +18,7 @@ public class Imu {
     public Imu(HardwareMap hardwareMap ){
 
         pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "pinpoint");
+        pinpoint.setOffsets(2, -2, DistanceUnit.MM);
         pinpoint.setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
         pinpoint.setEncoderDirections(
                 GoBildaPinpointDriver.EncoderDirection.FORWARD,
@@ -27,6 +28,7 @@ public class Imu {
     }
     // metodo per aggiornare la posizione
     public void update(){
+        pinpoint.update();
 
         Pose2D posizione = pinpoint.getPosition();
         if(posizione != null)

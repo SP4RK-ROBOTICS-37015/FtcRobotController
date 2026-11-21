@@ -5,9 +5,9 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Motors {
 
-    private DcMotor motorFrontLeft, motorFrontRight, motorBackLeft, motorBackRight;
+    public DcMotor motorFrontLeft, motorFrontRight, motorBackLeft, motorBackRight;
 
-    public void init(HardwareMap hwMap) { /* Dichiarazione delle variabili dei motori a partire dall configuration file con la funzione hwMap.get*/
+    public Motors(HardwareMap hwMap) { /* Dichiarazione delle variabili dei motori a partire dall configuration file con la funzione hwMap.get*/
 
 
         motorFrontLeft = hwMap.get(DcMotor.class, "frontLeft");
@@ -91,6 +91,31 @@ public class Motors {
         motorFrontLeft.setPower(speed);
         motorFrontRight.setPower(speed);
         motorBackLeft.setPower(speed);
+        motorBackRight.setPower(speed);
+    }
+    public void moveForwardTurnRight(double speed) {
+
+        motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorFrontRight.setDirection(DcMotor.Direction.FORWARD);
+        motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorBackRight.setDirection(DcMotor.Direction.REVERSE);
+
+        motorFrontLeft.setPower(speed);
+        motorFrontRight.setPower(speed/2);
+        motorBackLeft.setPower(speed);
+        motorBackRight.setPower(speed/2);
+    }
+
+    public void moveForwardTurnLeft(double speed) {
+
+        motorFrontLeft.setDirection(DcMotor.Direction.FORWARD);
+        motorFrontRight.setDirection(DcMotor.Direction.REVERSE);
+        motorBackLeft.setDirection(DcMotor.Direction.FORWARD);
+        motorBackRight.setDirection(DcMotor.Direction.FORWARD);
+
+        motorFrontLeft.setPower(speed/2);
+        motorFrontRight.setPower(speed);
+        motorBackLeft.setPower(speed/2);
         motorBackRight.setPower(speed);
     }
     public void stopMotors() {
