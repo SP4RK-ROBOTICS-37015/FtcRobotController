@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.hardware;
+package org.firstinspires.ftc.teamcode.Hardware;
 
 import com.qualcomm.hardware.gobilda.GoBildaPinpointDriver;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -8,34 +8,40 @@ import org.firstinspires.ftc.robotcore.external.navigation.Pose2D;
 
 
 public class Imu {
-    public GoBildaPinpointDriver pinpoint; //Dichiarazione di un nuovo oggetto. Nome dell'oggetto: pinpoint
+    public GoBildaPinpointDriver pinpoint; // Dichiarazione di un nuovo oggetto. Nome dell'oggetto: pinpoint
 
-    //Dichiarazione variabili
+    // Dichiarazione variabili
     public double posX;
     public double posY;
     public double angGradi;
 
-    //costrutore: "dettagli" dell'oggetto pinpoint
+    //Metodo costrutore: i "dettagli" dell'oggetto "pinpoint"
     public Imu(HardwareMap hardwareMap){
 
-        pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "pinpoint");
+        pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "Pinpoint");
         pinpoint.setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
-        pinpoint.setEncoderDirections(
+        pinpoint.setEncoderDirections( // Le direzioni del Pinpoint hanno bisogno di essere ricontrollate
+
                 GoBildaPinpointDriver.EncoderDirection.FORWARD,
                 GoBildaPinpointDriver.EncoderDirection.FORWARD
         );
+
         pinpoint.resetPosAndIMU();
     }
-    // metodo per aggiornare la posizione
+
+    // Metodo per aggiornare la posizione
     public void update(){
 
         Pose2D posizione = pinpoint.getPosition();
+
         if(posizione != null)
+
         {
-            posX = posizione.getX(DistanceUnit.MM); //posizione sull'asse delle x in MM -> millimetri
-            posY = posizione.getY(DistanceUnit.MM); //posizione sull'asse delle y in MM -> millimetri
-            angGradi = posizione.getHeading(AngleUnit.DEGREES); //angolo di rotazione in DEGREES -> gradi
+            posX = posizione.getX(DistanceUnit.MM); // Posizione sull'asse delle x in MM -> Millimetri
+            posY = posizione.getY(DistanceUnit.MM); // Posizione sull'asse delle y in MM -> Millimetri
+            angGradi = posizione.getHeading(AngleUnit.DEGREES); // Angolo di rotazione in DEGREES -> Gradi
         }
+
     }
 
 }

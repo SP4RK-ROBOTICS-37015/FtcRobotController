@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.opmode.autonomous;
+package org.firstinspires.ftc.teamcode.Practice;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous; // Importa i comandi necessari per creare la parte autonoma.
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode; // Importa la struttura che permette al codice di essere eseguito riga per riga.
@@ -14,14 +14,12 @@ public class AutonomusTest extends LinearOpMode { // Definizione del programma c
 
     @Override // Serve a riscrivere un metodo preesistente
 
-    public void runOpMode() {// Indica il punto di inizio obbligatorio in cui il robot entra quando si preme "Init". Collega i motori
+    public void runOpMode() { // Indica il punto di inizio obbligatorio in cui il robot entra quando si preme "Init". Collega i motori
 
-        motoreSinistroAnteriore = hardwareMap.get(DcMotor.class, "left_front");
-        // Collega la variabile del codice al motore fisico configurato come "left_drive".
-        motoreDestroAnteriore = hardwareMap.get(DcMotor.class, "right_front");
-        // Collega la variabile del codice al motore
-        motoreSinistroPosteiore = hardwareMap.get(DcMotor.class, "left_back");
-        motoreDestroPosteriore = hardwareMap.get(DcMotor.class, "right_back");
+        motoreSinistroAnteriore = hardwareMap.get(DcMotor.class, "frontLeft");
+        motoreDestroAnteriore = hardwareMap.get(DcMotor.class, "frontRight");
+        motoreSinistroPosteiore = hardwareMap.get(DcMotor.class, "backLeft");
+        motoreDestroPosteriore = hardwareMap.get(DcMotor.class, "backRight");
 
         // Direzione dei motori
         motoreSinistroAnteriore.setDirection(DcMotor.Direction.FORWARD);
@@ -36,7 +34,9 @@ public class AutonomusTest extends LinearOpMode { // Definizione del programma c
 
         // Aspetta il comando START
         waitForStart();
+
         if (opModeIsActive()) {
+
             return;
         }
 

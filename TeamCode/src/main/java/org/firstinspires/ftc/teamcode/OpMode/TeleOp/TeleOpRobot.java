@@ -1,14 +1,14 @@
-package org.firstinspires.ftc.teamcode.opmode.teleop;
+package org.firstinspires.ftc.teamcode.OpMode.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.hardware.Imu;
-import org.firstinspires.ftc.teamcode.hardware.Motors;
+import org.firstinspires.ftc.teamcode.Hardware.Imu;
+import org.firstinspires.ftc.teamcode.Hardware.Motors;
 
-@TeleOp(name = "Robot", group = "TeleOp")
+@TeleOp
 
-public class Robot extends OpMode {
+public class TeleOpRobot extends OpMode {
 
     private Motors motors;
     private Imu robotImu;
@@ -38,22 +38,21 @@ public class Robot extends OpMode {
         telemetry.addData("Right", gamepad1.dpad_right);
         telemetry.addData("TurnLeft", gamepad1.left_bumper);
         telemetry.addData("TurnRight", gamepad1.right_bumper);
-        telemetry.addData("LeftStickX: ", gamepad1.left_stick_x);
-        telemetry.addData("LeftStickY: ", gamepad1.left_stick_y);
-        telemetry.addData("RightStickX: ", gamepad1.right_stick_x);
-        telemetry.addData("RightStickY: ", gamepad1.right_stick_y);
+        telemetry.addData("LeftStickX -> ", gamepad1.left_stick_x);
+        telemetry.addData("LeftStickY -> ", gamepad1.left_stick_y);
+        telemetry.addData("RightStickX -> ", gamepad1.right_stick_x);
+        telemetry.addData("RightStickY -> ", gamepad1.right_stick_y);
 
         //Odometria
-        robotImu.update();
 
-        telemetry.addData("posizione X: ", robotImu.posX);
-        telemetry.addData("posizione Y: ", robotImu.posY);
-        telemetry.addData("angolo di rotazione: ", robotImu.angGradi);
+        telemetry.addData("Posizione X -> ", robotImu.posX);
+        telemetry.addData("Posizione Y -> ", robotImu.posY);
+        telemetry.addData("Angolo di rotazione -> ", robotImu.angGradi);
 
 
         // Controllo del movimento attraverso le freccette ed i bumper.
 
-        /*if (gamepad1.dpad_up) {
+        /* if (gamepad1.dpad_up) {
             motors.moveForward(speed);
         } else if (gamepad1.dpad_down) {
             motors.moveBack(speed);
@@ -67,7 +66,7 @@ public class Robot extends OpMode {
             motors.turnRight(speed);
         } else {
             motors.stopMotors();
-        }*/
+        } */
 
         // Prova dell'uso dei joysticks al posto delle freccette per controllare i movimenti del robot
 
