@@ -66,10 +66,16 @@ public class Robot extends OpMode {
             motors.moveRight(speed);
         }
         else if(gamepad1.right_stick_x > 0.1) {
-            motors.turnRight(speed);
+
+            if((gamepad1.left_stick_x>-0.1) && (gamepad1.left_stick_x<0.1)) {
+                motors.turnRight(speed);
+            }
         }
         else if(gamepad1.right_stick_x < -0.1) {
-            motors.turnLeft(speed);
+
+            if((gamepad1.left_stick_x>-0.1) && (gamepad1.left_stick_x<0.1)) {
+                motors.turnLeft(speed);
+            }
         }
         else {
             motors.stopMotors();
