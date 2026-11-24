@@ -2,29 +2,26 @@ package org.firstinspires.ftc.teamcode.opmode.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-//calssi importate
+// classi importate
 import org.firstinspires.ftc.teamcode.hardware.Motors;
 import org.firstinspires.ftc.teamcode.hardware.Imu;
 
 @TeleOp(name = "Test", group = "TeleOp")
-
 public class Robot extends OpMode {
 
-    Motors motors;
-    Imu robotImu;
+    private Motors motors;
+    private Imu robotImu;
 
     @Override
     public void init() {
-
         robotImu = new Imu(hardwareMap);
         motors = new Motors(hardwareMap);
         telemetry.addData("INIT", "Pronto!");
-
     }
 
     @Override
     public void loop() {
-
+        // Se il trigger non è premuto (valore ~0), imposta la velocità di default a 1.0
         double speed = gamepad1.right_trigger;
 
         robotImu.update();
@@ -41,43 +38,27 @@ public class Robot extends OpMode {
 
         telemetry.addData("Posizione robot asseX:", robotImu.posX);
         telemetry.addData("Posizione robot asseY:", robotImu.posY);
-
         telemetry.addData("Angolo rotazione:", robotImu.Ang_Gradi);
 
-        if(gamepad1.left_stick_y < -0.1) {
-
-            if((gamepad1.right_stick_x>-0.1) && (gamepad1.right_stick_x<0.1)) {
+        if (gamepad1.left_stick_y < -0.1) {
+            if (gamepad1.right_stick_x < -0.1) {
+                motors.moveForwardTurnLeft(speed);
+            } else if (gamepad1.right_stick_x > 0.1) {
+                motors.moveForwardTurnRight(speed);
+            } else {
                 motors.moveForward(speed);
             }
-            else if(gamepad1.right_stick_x<-0.1){
-                motors.moveForwardTurnLeft(speed);
-            }
-            else if(gamepad1.right_stick_x>0.1){
-                motors.moveForwardTurnRight(speed);
-            }
-        }
-        else if(gamepad1.left_stick_y > 0.1) {
+        } else if (gamepad1.left_stick_y > 0.1) {
             motors.moveBack(speed);
-        }
-        else if(gamepad1.left_stick_x < -0.1) {
+        } else if (gamepad1.left_stick_x < -0.1) {
             motors.moveLeft(speed);
-        }
-        else if(gamepad1.left_stick_x > 0.1) {
+        } else if (gamepad1.left_stick_x > 0.1) {
             motors.moveRight(speed);
-        }
-        else if(gamepad1.right_stick_x > 0.1) {
-
-            if((gamepad1.left_stick_x>-0.1) && (gamepad1.left_stick_x<0.1)) {
-                motors.turnRight(speed);
-            }
-        }
-        else if(gamepad1.right_stick_x < -0.1) {
-
-            if((gamepad1.left_stick_x>-0.1) && (gamepad1.left_stick_x<0.1)) {
-                motors.turnLeft(speed);
-            }
-        }
-        else {
+        } else if (gamepad1.right_stick_x > 0.1 && Math.abs(gamepad1.left_stick_x) < 0.1) {
+            motors.turnRight(speed);
+        } else if (gamepad1.right_stick_x < -0.1 && Math.abs(gamepad1.left_stick_x) < 0.1) {
+            motors.turnLeft(speed);
+        } else {
             motors.stopMotors();
         }
     }

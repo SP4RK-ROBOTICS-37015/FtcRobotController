@@ -14,7 +14,7 @@ public class Imu {
     public double posY;
     public double Ang_Gradi;
 
-    //costrutore: "dettagli" dell'oggetto pinpoint
+    // costruttore: "dettagli" dell'oggetto pinpoint
     public Imu(HardwareMap hardwareMap ){
 
         pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "pinpoint");

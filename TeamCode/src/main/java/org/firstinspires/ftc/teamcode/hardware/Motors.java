@@ -7,7 +7,7 @@ public class Motors {
 
     public DcMotor motorFrontLeft, motorFrontRight, motorBackLeft, motorBackRight;
 
-    public Motors(HardwareMap hwMap) { /* Dichiarazione delle variabili dei motori a partire dall configuration file con la funzione hwMap.get*/
+    public Motors(HardwareMap hwMap) { /* Dichiarazione delle variabili dei motori a partire dal configuration file con la funzione hwMap.get*/
 
 
         motorFrontLeft = hwMap.get(DcMotor.class, "frontLeft");
