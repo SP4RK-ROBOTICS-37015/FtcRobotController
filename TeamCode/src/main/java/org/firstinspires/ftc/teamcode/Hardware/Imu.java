@@ -1,5 +1,4 @@
 package org.firstinspires.ftc.teamcode.Hardware;
-
 import com.qualcomm.hardware.gobilda.GoBildaPinpointDriver;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -19,6 +18,9 @@ public class Imu {
     public Imu(HardwareMap hardwareMap){
 
         pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "Pinpoint");
+
+        pinpoint.setOffsets(2, -2, DistanceUnit.MM);
+
         pinpoint.setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
         pinpoint.setEncoderDirections( // Le direzioni del Pinpoint hanno bisogno di essere ricontrollate
 
