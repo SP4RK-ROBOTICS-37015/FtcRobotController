@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.hardware;
+package org.firstinspires.ftc.teamcode.Hardware;
 
 import com.qualcomm.hardware.gobilda.GoBildaPinpointDriver;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -37,6 +37,10 @@ public class Imu {
             posY = posizione.getY(DistanceUnit.MM); //posizione sull'asse delle y in MM -> millimetri
             Ang_Gradi = posizione.getHeading(AngleUnit.DEGREES); //angolo di rotazione in DEGREES -> gradi
         }
+    }
+    public void ResetPosition()
+    {
+        pinpoint.resetPosAndIMU();
     }
 
 }

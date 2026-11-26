@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.hardware;
+package org.firstinspires.ftc.teamcode.Hardware;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -101,9 +101,9 @@ public class Motors {
         motorBackRight.setDirection(DcMotor.Direction.REVERSE);
 
         motorFrontLeft.setPower(speed);
-        motorFrontRight.setPower(speed/2);
+        motorFrontRight.setPower(speed/4);
         motorBackLeft.setPower(speed);
-        motorBackRight.setPower(speed/2);
+        motorBackRight.setPower(speed/4);
     }
 
     public void moveForwardTurnLeft(double speed) {
@@ -113,10 +113,34 @@ public class Motors {
         motorBackLeft.setDirection(DcMotor.Direction.FORWARD);
         motorBackRight.setDirection(DcMotor.Direction.FORWARD);
 
-        motorFrontLeft.setPower(speed/2);
+        motorFrontLeft.setPower(speed/4);
         motorFrontRight.setPower(speed);
-        motorBackLeft.setPower(speed/2);
+        motorBackLeft.setPower(speed/4);
         motorBackRight.setPower(speed);
+    }
+    public void moveDiagonalLeft(double speed) {
+
+        motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorFrontRight.setDirection(DcMotor.Direction.REVERSE);
+        motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorBackRight.setDirection(DcMotor.Direction.FORWARD);
+
+        motorFrontLeft.setPower(speed);
+        motorFrontRight.setPower(0);
+        motorBackLeft.setPower(0);
+        motorBackRight.setPower(speed);
+    }
+    public void moveDiagonalRight(double speed) {
+
+        motorFrontLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorFrontRight.setDirection(DcMotor.Direction.REVERSE);
+        motorBackLeft.setDirection(DcMotor.Direction.REVERSE);
+        motorBackRight.setDirection(DcMotor.Direction.FORWARD);
+
+        motorFrontLeft.setPower(0);
+        motorFrontRight.setPower(speed);
+        motorBackLeft.setPower(speed);
+        motorBackRight.setPower(0);
     }
     public void stopMotors() {
         motorFrontLeft.setPower(0);

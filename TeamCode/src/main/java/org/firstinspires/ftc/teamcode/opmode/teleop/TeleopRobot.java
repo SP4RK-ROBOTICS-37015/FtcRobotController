@@ -1,10 +1,10 @@
-package org.firstinspires.ftc.teamcode.opmode.teleop;
+package org.firstinspires.ftc.teamcode.OpMode.Teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 // classi importate
-import org.firstinspires.ftc.teamcode.hardware.Motors;
-import org.firstinspires.ftc.teamcode.hardware.Imu;
+import org.firstinspires.ftc.teamcode.Hardware.Motors;
+import org.firstinspires.ftc.teamcode.Hardware.Imu;
 
 @TeleOp(name = "Test", group = "TeleOp")
 public class TeleopRobot extends OpMode {
@@ -54,11 +54,36 @@ public class TeleopRobot extends OpMode {
             motors.moveLeft(speed);
         } else if (gamepad1.left_stick_x > 0.1) {
             motors.moveRight(speed);
-        } else if (gamepad1.right_stick_x > 0.1 && Math.abs(gamepad1.left_stick_x) < 0.1) {
+        } else if ((gamepad1.right_stick_x > 0.1) && (gamepad1.left_stick_x < 0.1)) {
             motors.turnRight(speed);
-        } else if (gamepad1.right_stick_x < -0.1 && Math.abs(gamepad1.left_stick_x) < 0.1) {
+        } else if ((gamepad1.right_stick_x < -0.1) && (gamepad1.left_stick_x < 0.1)) {
             motors.turnLeft(speed);
-        } else {
+        }
+
+        else if(gamepad1.left_bumper){
+            motors.moveDiagonalLeft(speed);
+        }
+        else if(gamepad1.right_bumper){
+            motors.moveDiagonalRight(speed);
+        }
+
+        else if (gamepad1.dpad_left) {
+            if (robotImu.Ang_Gradi != 90) {
+                motors.turnLeft(speed);
+            }
+            else{
+                robotImu.ResetPosition();
+            }
+        }
+        else if (gamepad1.dpad_right) {
+            if (robotImu.Ang_Gradi != 90) {
+                motors.turnRight(speed);
+            }
+            else{
+            robotImu.ResetPosition();
+            }
+        }
+        else {
             motors.stopMotors();
         }
     }
