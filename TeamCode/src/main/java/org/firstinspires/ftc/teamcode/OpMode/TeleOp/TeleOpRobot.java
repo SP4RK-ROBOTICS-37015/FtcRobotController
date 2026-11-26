@@ -1,9 +1,6 @@
 package org.firstinspires.ftc.teamcode.OpMode.TeleOp;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
-import org.firstinspires.ftc.teamcode.Hardware.Imu;
 import org.firstinspires.ftc.teamcode.Hardware.Motors;
 
 @TeleOp
@@ -11,13 +8,11 @@ import org.firstinspires.ftc.teamcode.Hardware.Motors;
 public class TeleOpRobot extends OpMode {
 
     private Motors motors;
-    private Imu robotImu;
 
     @Override
     public void init() {
 
         motors = new Motors();
-        robotImu = new Imu(hardwareMap);
 
         motors.init(hardwareMap);
         telemetry.addData("INIT", "Pronto!");
@@ -42,13 +37,6 @@ public class TeleOpRobot extends OpMode {
         telemetry.addData("LeftStickY -> ", gamepad1.left_stick_y);
         telemetry.addData("RightStickX -> ", gamepad1.right_stick_x);
         telemetry.addData("RightStickY -> ", gamepad1.right_stick_y);
-
-        //Odometria
-
-        telemetry.addData("Posizione X -> ", robotImu.posX);
-        telemetry.addData("Posizione Y -> ", robotImu.posY);
-        telemetry.addData("Angolo di rotazione -> ", robotImu.angGradi);
-
 
         // Controllo del movimento attraverso le freccette ed i bumper.
 

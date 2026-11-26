@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.Practice;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import org.firstinspires.ftc.teamcode.Hardware.Imu;
 import org.firstinspires.ftc.teamcode.Hardware.Motors;
 
+@Disabled
 @Autonomous(name = "AutonomousImu", group = "autonomous")
 
 public class AutonomousWithImuTest extends OpMode {

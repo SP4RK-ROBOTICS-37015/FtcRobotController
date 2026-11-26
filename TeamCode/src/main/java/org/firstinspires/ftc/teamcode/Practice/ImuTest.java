@@ -1,8 +1,10 @@
 package org.firstinspires.ftc.teamcode.Practice;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Hardware.Imu;
 
+@Disabled
 @TeleOp
 public class ImuTest extends OpMode {
 
