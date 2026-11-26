@@ -17,7 +17,7 @@ public class Imu {
     // costruttore: "dettagli" dell'oggetto pinpoint
     public Imu(HardwareMap hardwareMap ){
 
-        pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "pinpoint");
+        pinpoint = hardwareMap.get(GoBildaPinpointDriver.class, "Pinpoint");
         pinpoint.setOffsets(2, -2, DistanceUnit.MM);
         pinpoint.setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
         pinpoint.setEncoderDirections(

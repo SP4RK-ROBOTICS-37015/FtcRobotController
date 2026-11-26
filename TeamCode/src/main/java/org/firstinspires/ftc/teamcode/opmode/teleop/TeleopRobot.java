@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.hardware.Motors;
 import org.firstinspires.ftc.teamcode.hardware.Imu;
 
 @TeleOp(name = "Test", group = "TeleOp")
-public class Robot extends OpMode {
+public class TeleopRobot extends OpMode {
 
     private Motors motors;
     private Imu robotImu;
